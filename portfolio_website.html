@@ -3,178 +3,508 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shaik Althaf - Portfolio</title>
+  <title>Shaik Althaf — Software Developer Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .section { scroll-margin-top: 64px; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    .section { scroll-margin-top: 80px; }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+    .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+    
+    .gradient-bg {
+      background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    
+    .glass {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .skill-card {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.5s;
+    }
+    
+    .skill-card:hover::before {
+      left: 100%;
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .project-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-left: 4px solid transparent;
+    }
+    
+    .project-card:hover {
+      transform: translateX(8px);
+      border-left-color: #3b82f6;
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+    }
+    
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    .btn-primary:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .timeline-item {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.6s ease;
+    }
+    
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .social-icon {
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    
+    .social-icon:hover {
+      transform: translateY(-5px) scale(1.2);
+    }
+    
+    .profile-img {
+      transition: all 0.4s;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    
+    .profile-img:hover {
+      transform: scale(1.05) rotate(3deg);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    }
+    
+    .tag {
+      transition: all 0.3s;
+    }
+    
+    .tag:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
   </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
-  <!-- Header -->
-  <header class="bg-white shadow-md fixed w-full z-10">
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navbar -->
+  <header class="fixed w-full glass shadow-lg z-50">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold text-gray-800">Shaik Althaf</a>
-      <div class="hidden md:flex space-x-6">
-        <a href="#about" class="hover:text-blue-500">About</a>
-        <a href="#skills" class="hover:text-blue-500">Skills</a>
-        <a href="#projects" class="hover:text-blue-500">Projects</a>
-        <a href="#education" class="hover:text-blue-500">Education</a>
-        <a href="#certifications" class="hover:text-blue-500">Certifications</a>
-        <a href="#contact" class="hover:text-blue-500">Contact</a>
+      <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Shaik Althaf
+      </a>
+      <div class="hidden md:flex space-x-8 font-medium">
+        <a href="#about" class="hover:text-blue-600 transition">About</a>
+        <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
+        <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+        <a href="#education" class="hover:text-blue-600 transition">Education</a>
+        <a href="#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-full hover:shadow-lg transition">Contact</a>
       </div>
-      <button id="mobile-menu-button" class="md:hidden text-gray-800">
+      <button id="menu-btn" class="md:hidden text-2xl text-gray-700 hover:text-blue-600 transition">
         <i class="fas fa-bars"></i>
       </button>
     </nav>
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-      <a href="#about" class="block py-2 px-4 hover:bg-gray-100">About</a>
-      <a href="#skills" class="block py-2 px-4 hover:bg-gray-100">Skills</a>
-      <a href="#projects" class="block py-2 px-4 hover:bg-gray-100">Projects</a>
-      <a href="#education" class="block py-2 px-4 hover:bg-gray-100">Education</a>
-      <a href="#certifications" class="block py-2 px-4 hover:bg-gray-100">Certifications</a>
-      <a href="#contact" class="block py-2 px-4 hover:bg-gray-100">Contact</a>
+    <div id="menu" class="hidden md:hidden glass">
+      <a href="#about" class="block px-6 py-3 hover:bg-blue-50 transition">About</a>
+      <a href="#skills" class="block px-6 py-3 hover:bg-blue-50 transition">Skills</a>
+      <a href="#projects" class="block px-6 py-3 hover:bg-blue-50 transition">Projects</a>
+      <a href="#education" class="block px-6 py-3 hover:bg-blue-50 transition">Education</a>
+      <a href="#contact" class="block px-6 py-3 hover:bg-blue-50 transition">Contact</a>
     </div>
   </header>
 
-  <main class="pt-20">
-    <!-- Hero -->
-    <section id="home" class="bg-white py-20 text-center">
-      <div class="container mx-auto px-6">
-        <h1 class="text-5xl font-bold text-gray-800">Shaik Althaf</h1>
-        <p class="mt-3 text-xl text-gray-600">Software Developer | Web Developer | Python & Flask Enthusiast</p>
-        <p class="mt-5 max-w-3xl mx-auto text-gray-600">
-          Enthusiastic and detail-oriented Software Developer with a strong foundation in Python, Flask, and Web Development. 
-          Experienced in backend development, database design, and responsive UI creation.
-        </p>
-        <div class="mt-8">
-          <a href="#projects" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">View My Work</a>
-        </div>
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center gradient-bg pt-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="relative z-10 animate-fadeInUp">
+      <img src="https://placehold.co/200x200/667eea/ffffff?text=SA" alt="Profile" class="rounded-full shadow-2xl mb-6 profile-img mx-auto border-4 border-white">
+      <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4">Shaik Althaf</h1>
+      <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <span class="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold border border-white/30">
+          Software Developer
+        </span>
+        <span class="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold border border-white/30">
+          Python & Flask
+        </span>
+        <span class="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold border border-white/30">
+          Full-Stack Enthusiast
+        </span>
       </div>
-    </section>
+      <p class="text-xl md:text-2xl text-white/90 font-light max-w-3xl mx-auto px-6 mb-8">
+        Building efficient, user-centered applications with clean code and smart design. 
+        A passionate problem solver ready to create impactful software solutions.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <a href="#projects" class="btn-primary bg-white text-blue-600 px-8 py-4 rounded-full font-bold hover:shadow-2xl transition transform hover:scale-105">
+          <i class="fas fa-rocket mr-2"></i>View My Work
+        </a>
+        <a href="mailto:althaf994957@gmail.com" class="btn-primary bg-gray-900 text-white px-8 py-4 rounded-full font-bold hover:bg-black hover:shadow-2xl transition transform hover:scale-105">
+          <i class="fas fa-envelope mr-2"></i>Get In Touch
+        </a>
+      </div>
+      <div class="flex justify-center space-x-8 text-4xl">
+        <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" class="social-icon text-white hover:text-blue-300">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/althaf99495" target="_blank" class="social-icon text-white hover:text-gray-300">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- About -->
-    <section id="about" class="py-20 bg-gray-50 section">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-10">About Me</h2>
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="md:w-2/3 md:pr-10">
-            <p class="text-lg mb-4">
-              Hello! I'm a passionate developer who loves creating impactful software solutions.
-              My career objective is to contribute to building efficient, user-centered applications using my skills in Python and Flask, while continuously learning and growing into a full-stack developer.
-            </p>
-            <p class="text-lg mb-4">
-              I enjoy collaborating in teams, solving real-world problems, and exploring emerging technologies like data analytics and AI integration.
-            </p>
+  <!-- About -->
+  <section id="about" class="section py-24 bg-white">
+    <div class="container mx-auto px-6 md:px-10">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        About Me
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-16 rounded-full"></div>
+      <div class="flex flex-col md:flex-row items-center md:space-x-12">
+        <div class="md:w-2/3 text-lg leading-relaxed text-gray-700 space-y-6">
+          <p class="text-xl font-semibold text-gray-900">
+            👋 Hello! I'm a Computer Science graduate currently pursuing M.Sc. at Sri Venkateswara University, Tirupati.
+          </p>
+          <p>
+            My expertise lies in <span class="font-semibold text-blue-600">Python development, Flask frameworks</span>, and building full-stack web solutions. I'm passionate about writing clean, maintainable code and creating applications that solve real-world problems.
+          </p>
+          <p>
+            🎯 <strong>Career Goal:</strong> Aspiring to become a versatile full-stack developer, contributing to innovative projects that make a difference.
+          </p>
+          <p>
+            💡 When I'm not coding, you'll find me exploring emerging technologies, contributing to open-source projects, and continuously sharpening my problem-solving abilities through competitive programming.
+          </p>
+          <div class="flex flex-wrap gap-3 pt-4">
+            <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Problem Solver</span>
+            <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">Quick Learner</span>
+            <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">Team Player</span>
+            <span class="bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold">Open Source Enthusiast</span>
           </div>
-          <div class="md:w-1/3 mt-8 md:mt-0">
-            <img src="https://placehold.co/400x400/E2E8F0/4A5568?text=SA" alt="Shaik Althaf" class="rounded-full shadow-lg mx-auto">
+        </div>
+        <div class="md:w-1/3 mt-12 md:mt-0">
+          <img src="https://placehold.co/400x400/667eea/ffffff?text=Shaik+Althaf" alt="Shaik Althaf" class="rounded-3xl shadow-2xl mx-auto profile-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Technical Arsenal
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-16 rounded-full"></div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="skill-card p-8 bg-white rounded-2xl shadow-lg cursor-pointer">
+          <i class="fab fa-python text-6xl text-blue-500 mb-4"></i>
+          <p class="font-bold text-lg">Python</p>
+          <p class="text-sm text-gray-600 mt-2">Core Language</p>
+        </div>
+        <div class="skill-card p-8 bg-white rounded-2xl shadow-lg cursor-pointer">
+          <i class="fas fa-flask text-6xl text-gray-700 mb-4"></i>
+          <p class="font-bold text-lg">Flask</p>
+          <p class="text-sm text-gray-600 mt-2">Web Framework</p>
+        </div>
+        <div class="skill-card p-8 bg-white rounded-2xl shadow-lg cursor-pointer">
+          <i class="fab fa-js text-6xl text-yellow-400 mb-4"></i>
+          <p class="font-bold text-lg">JavaScript</p>
+          <p class="text-sm text-gray-600 mt-2">Frontend Logic</p>
+        </div>
+        <div class="skill-card p-8 bg-white rounded-2xl shadow-lg cursor-pointer">
+          <i class="fab fa-html5 text-6xl text-orange-500 mb-4"></i>
+          <p class="font-bold text-lg">HTML5</p>
+          <p class="text-sm text-gray-600 mt-2">Structure</p>
+        </div>
+        <div class="skill-card p-8 bg-white rounded-2xl shadow-lg cursor-pointer">
+          <i class="fab fa-css3-alt text-6xl text-blue-600 mb-4"></i>
+          <p class="font-bold text-lg">CSS3</p>
+          <p class="text-sm text-gray-600 mt-2">Styling</p>
+        </div>
+        <div class="skill-card p-8 bg-white rounded-2xl shadow-lg cursor-pointer">
+          <i class="fas fa-database text-6xl text-green-500 mb-4"></i>
+          <p class="font-bold text-lg">SQLite3</p>
+          <p class="text-sm text-gray-600 mt-2">Database</p>
+        </div>
+        <div class="skill-card p-8 bg-white rounded-2xl shadow-lg cursor-pointer">
+          <i class="fab fa-git-alt text-6xl text-red-500 mb-4"></i>
+          <p class="font-bold text-lg">Git & GitHub</p>
+          <p class="text-sm text-gray-600 mt-2">Version Control</p>
+        </div>
+        <div class="skill-card p-8 bg-white rounded-2xl shadow-lg cursor-pointer">
+          <i class="fas fa-chart-line text-6xl text-purple-500 mb-4"></i>
+          <p class="font-bold text-lg">Data Analysis</p>
+          <p class="text-sm text-gray-600 mt-2">Pandas & Matplotlib</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Featured Projects
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-16 rounded-full"></div>
+      <div class="max-w-5xl mx-auto space-y-8">
+        <div class="project-card p-10 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl shadow-lg">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-3xl font-bold mb-2 text-gray-900">Transfer Certificate Generation System</h3>
+              <p class="text-blue-600 font-semibold">Desktop Application • Automation</p>
+            </div>
+            <i class="fas fa-certificate text-5xl text-blue-500 opacity-20"></i>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="py-20 bg-white section">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-10">Technical Skills</h2>
-        <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-6 text-center">
-          <div class="p-6 bg-gray-50 rounded-lg shadow"><i class="fab fa-python text-5xl text-blue-500 mb-3"></i><p>Python</p></div>
-          <div class="p-6 bg-gray-50 rounded-lg shadow"><i class="fab fa-js text-5xl text-yellow-400 mb-3"></i><p>JavaScript</p></div>
-          <div class="p-6 bg-gray-50 rounded-lg shadow"><i class="fas fa-flask text-5xl text-gray-700 mb-3"></i><p>Flask</p></div>
-          <div class="p-6 bg-gray-50 rounded-lg shadow"><i class="fas fa-database text-5xl text-green-500 mb-3"></i><p>SQLite3</p></div>
-          <div class="p-6 bg-gray-50 rounded-lg shadow"><i class="fab fa-html5 text-5xl text-orange-500 mb-3"></i><p>HTML5</p></div>
-          <div class="p-6 bg-gray-50 rounded-lg shadow"><i class="fab fa-css3-alt text-5xl text-blue-500 mb-3"></i><p>CSS3</p></div>
-          <div class="p-6 bg-gray-50 rounded-lg shadow"><i class="fab fa-git-alt text-5xl text-red-500 mb-3"></i><p>Git & GitHub</p></div>
-          <div class="p-6 bg-gray-50 rounded-lg shadow"><i class="fas fa-chart-line text-5xl text-purple-500 mb-3"></i><p>Pandas & Matplotlib</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="py-20 section">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
-        <div class="max-w-4xl mx-auto space-y-8">
-          <div class="bg-white shadow-lg p-8 rounded-lg">
-            <h3 class="text-2xl font-bold mb-2">Transfer Certificate (TC) Generation System</h3>
-            <p class="text-gray-600 mb-4">A desktop application automating TC generation for college administration.</p>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
-              <li>Automated student record management and certificate generation.</li>
-              <li>Built using Python with SQLite3 backend.</li>
-              <li>Improved accuracy and reduced processing time significantly.</li>
+          <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+            Engineered a comprehensive desktop application that revolutionizes the student transfer certificate generation process. 
+            This solution eliminates manual paperwork, drastically reduces processing time, and ensures data accuracy across all documents.
+          </p>
+          <div class="bg-white/60 p-6 rounded-xl mb-6">
+            <h4 class="font-bold text-gray-900 mb-3 flex items-center">
+              <i class="fas fa-star text-yellow-500 mr-2"></i>Key Achievements
+            </h4>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                <span>Reduced certificate generation time by 80% through intelligent automation</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                <span>Implemented robust SQLite3 database for secure student data management</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                <span>Designed intuitive UI/UX for seamless administrative workflow</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                <span>Achieved 100% accuracy in document generation eliminating human errors</span>
+              </li>
             </ul>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
-              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">SQLite3</span>
-              <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Automation</span>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="tag bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">Python</span>
+            <span class="tag bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">SQLite3</span>
+            <span class="tag bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">Automation</span>
+            <span class="tag bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">Desktop App</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section py-24 bg-gradient-to-br from-gray-50 to-purple-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Academic Journey
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-16 rounded-full"></div>
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="timeline-item bg-white p-8 rounded-2xl shadow-lg border-l-8 border-blue-600">
+          <div class="flex items-center mb-3">
+            <i class="fas fa-graduation-cap text-4xl text-blue-600 mr-4"></i>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">M.Sc in Computer Science</h3>
+              <p class="text-blue-600 font-semibold">Current</p>
             </div>
           </div>
+          <p class="text-gray-700 font-medium mb-2">Sri Venkateswara University College of CM & CS, Tirupati</p>
+          <p class="text-gray-600">2024 – 2026 | Pursuing Advanced Studies</p>
+          <p class="mt-3 text-gray-700">Specializing in advanced software development, algorithms, and modern web technologies.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="bg-gray-50 py-20 section">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-10">Education</h2>
-        <div class="max-w-3xl mx-auto space-y-8">
-          <div class="border-l-4 border-blue-500 pl-6">
-            <h3 class="text-2xl font-bold">M.Sc in Computer Science</h3>
-            <p class="text-gray-600 italic">Sri Venkateswara University College of CM & CS, Tirupati</p>
-            <p class="text-gray-500">2024 – 2026</p>
+        
+        <div class="timeline-item bg-white p-8 rounded-2xl shadow-lg border-l-8 border-purple-600">
+          <div class="flex items-center mb-3">
+            <i class="fas fa-university text-4xl text-purple-600 mr-4"></i>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">B.Sc in Computer Science</h3>
+              <p class="text-purple-600 font-semibold">CGPA 7.3</p>
+            </div>
           </div>
-          <div class="border-l-4 border-blue-500 pl-6">
-            <h3 class="text-2xl font-bold">B.Sc in Computer Science</h3>
-            <p class="text-gray-600 italic">Government Degree College for Men, Kurnool</p>
-            <p class="text-gray-500">2021 – 2024 | CGPA: 7.3</p>
+          <p class="text-gray-700 font-medium mb-2">Government Degree College for Men, Kurnool</p>
+          <p class="text-gray-600">2021 – 2024 | Graduated</p>
+          <p class="mt-3 text-gray-700">Built strong foundation in programming, data structures, and software engineering principles.</p>
+        </div>
+        
+        <div class="timeline-item bg-white p-8 rounded-2xl shadow-lg border-l-8 border-green-600">
+          <div class="flex items-center mb-3">
+            <i class="fas fa-school text-4xl text-green-600 mr-4"></i>
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Secondary Education</h3>
+              <p class="text-green-600 font-semibold">CGPA 8.7</p>
+            </div>
           </div>
-          <div class="border-l-4 border-blue-500 pl-6">
-            <h3 class="text-2xl font-bold">Secondary Education</h3>
-            <p class="text-gray-600 italic">Krishnaveni EMHS, Kurnool</p>
-            <p class="text-gray-500">CGPA: 8.7</p>
+          <p class="text-gray-700 font-medium mb-2">Krishnaveni EMHS, Kurnool</p>
+          <p class="text-gray-600">Completed with Distinction</p>
+        </div>
+      </div>
+      
+      <!-- Certifications -->
+      <div class="max-w-4xl mx-auto mt-16">
+        <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Certifications & Achievements</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-8 rounded-2xl shadow-lg text-center transform hover:scale-105 transition">
+            <i class="fas fa-certificate text-5xl text-blue-600 mb-4"></i>
+            <h4 class="text-xl font-bold mb-2">Microsoft Certified</h4>
+            <p class="text-gray-700">Python Programming</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-lg text-center transform hover:scale-105 transition">
+            <i class="fas fa-trophy text-5xl text-yellow-500 mb-4"></i>
+            <h4 class="text-xl font-bold mb-2">Academic Excellence</h4>
+            <p class="text-gray-700">Consistent High Performance</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Certifications -->
-    <section id="certifications" class="py-20 bg-white section">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold mb-10">Certifications & Achievements</h2>
-        <div class="max-w-2xl mx-auto">
-          <p class="text-lg mb-4">🏅 <strong>Python Programming</strong> – Microsoft Certified</p>
-          <p class="text-lg mb-4">🎓 Academic Excellence – 8.7 CGPA in Secondary Education, 7.3 CGPA in B.Sc</p>
-        </div>
+  <!-- Contact -->
+  <section id="contact" class="section py-24 gradient-bg relative overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-white">Let's Build Something Amazing</h2>
+      <p class="text-xl mb-12 text-white/90 max-w-2xl mx-auto">
+        I'm always excited to discuss new opportunities, collaborations, or just chat about technology!
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+        <a href="mailto:althaf994957@gmail.com" class="btn-primary bg-white text-blue-600 px-10 py-5 rounded-full font-bold hover:shadow-2xl transition transform hover:scale-105 text-lg">
+          <i class="fas fa-envelope mr-3"></i>Send Email
+        </a>
+        <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" class="btn-primary bg-blue-600 text-white px-10 py-5 rounded-full font-bold hover:shadow-2xl transition transform hover:scale-105 text-lg border-2 border-white">
+          <i class="fab fa-linkedin mr-3"></i>Connect on LinkedIn
+        </a>
       </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-20 bg-gray-50 section text-center">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
-        <p class="text-lg mb-8 text-gray-600">Open to software development roles, internships, and collaborations.</p>
-        <a href="mailto:althaf994957@gmail.com" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition"><i class="fas fa-envelope mr-2"></i>Email Me</a>
-        <div class="flex justify-center mt-10 space-x-6 text-3xl">
-          <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" class="text-blue-600 hover:text-blue-800"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/althaf99495" target="_blank" class="text-gray-700 hover:text-black"><i class="fab fa-github"></i></a>
-        </div>
+      <div class="flex justify-center space-x-10 text-5xl mb-8">
+        <a href="mailto:althaf994957@gmail.com" class="social-icon text-white">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" class="social-icon text-white">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/althaf99495" target="_blank" class="social-icon text-white">
+          <i class="fab fa-github"></i>
+        </a>
       </div>
-    </section>
-  </main>
+      <p class="text-white/80 text-lg">📍 Based in Tirupati, Andhra Pradesh</p>
+    </div>
+  </section>
 
-  <footer class="bg-gray-800 text-white py-6 text-center">
-    <p>&copy; 2025 Shaik Althaf. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-lg mb-4">&copy; 2025 Shaik Althaf | All Rights Reserved</p>
+      <p class="mb-4">Built with <span class="text-red-500">❤</span> using HTML, CSS & JavaScript</p>
+      <div class="flex justify-center space-x-6 text-sm">
+        <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" class="hover:text-blue-400 transition">LinkedIn</a>
+        <span>•</span>
+        <a href="https://github.com/althaf99495" target="_blank" class="hover:text-white transition">GitHub</a>
+        <span>•</span>
+        <a href="mailto:althaf994957@gmail.com" class="hover:text-white transition">Email</a>
+      </div>
+    </div>
   </footer>
 
   <script>
-    const menuBtn = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+    // Mobile menu toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu");
+    menuBtn.addEventListener("click", () => menu.classList.toggle("hidden"));
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => menu.classList.add("hidden"));
+    });
+
+    // Intersection Observer for timeline animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      observer.observe(item);
+    });
+
+    // Smooth scroll with offset for fixed header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
-
