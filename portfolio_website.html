@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shaik Althaf — Software Developer</title>
+  <title>Shaik Althaf — Backend Developer</title>
+  <meta name="description" content="Shaik Althaf, M.Sc. Computer Science. Python backend developer working with FastAPI, PostgreSQL and pytest." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -87,16 +88,6 @@
       display: inline-block;
     }
     
-    /* Progress bars */
-    .progress-bar {
-      width: 0;
-      transition: width 2s ease-out;
-    }
-    
-    .progress-bar.animate {
-      width: var(--progress);
-    }
-    
     /* Glitch effect */
     .glitch {
       position: relative;
@@ -153,6 +144,13 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .particle, .typewriter { animation: none; }
+      .typewriter { border-right: 0; }
+      .card-3d:hover, .neon-glow:hover { transform: none; }
+    }
     
     /* Custom scrollbar */
     ::-webkit-scrollbar {
@@ -202,7 +200,7 @@
           Contact
         </a>
       </div>
-      <button id="menu-btn" class="md:hidden text-2xl text-cyan-400">
+      <button id="menu-btn" class="md:hidden text-2xl text-cyan-400" aria-label="Toggle menu">
         <i class="fas fa-bars"></i>
       </button>
     </nav>
@@ -226,30 +224,32 @@
             Shaik <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Althaf</span>
           </h1>
           <div class="text-2xl md:text-3xl text-gray-400 mb-6 h-12">
-            <span class="typewriter text-cyan-400 font-semibold">Software Developer</span>
+            <span class="typewriter text-cyan-400 font-semibold">Backend Developer</span>
           </div>
           <p class="text-lg text-gray-400 mb-8 max-w-xl">
-            Crafting elegant solutions with <span class="text-cyan-400 font-semibold">Python</span>, 
-            <span class="text-cyan-400 font-semibold">Flask</span>, and modern web technologies. 
-            Passionate about building products that make a difference.
+            M.Sc. Computer Science fresher. I build Python backends with
+            <span class="text-cyan-400 font-semibold">FastAPI</span>,
+            <span class="text-cyan-400 font-semibold">PostgreSQL</span> and
+            <span class="text-cyan-400 font-semibold">pytest</span>,
+            on top of C++ and DSA fundamentals.
           </p>
           <div class="flex flex-wrap gap-4 justify-center md:justify-start">
             <a href="#projects" class="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-lg overflow-hidden transition-all hover:shadow-lg hover:shadow-cyan-500/50">
-              <span class="relative z-10">Explore Projects</span>
+              <span class="relative z-10">View Projects</span>
               <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
             </a>
             <a href="mailto:althaf994957@gmail.com" class="px-8 py-4 border-2 border-cyan-500 text-cyan-400 font-bold rounded-lg hover:bg-cyan-500 hover:text-white transition">
-              Get In Touch
+              Email Me
             </a>
           </div>
           <div class="flex gap-6 mt-8 text-2xl justify-center md:justify-start">
-            <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
+            <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com/althaf99495" target="_blank" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
+            <a href="https://github.com/althaf99495" target="_blank" rel="noopener" aria-label="GitHub" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
               <i class="fab fa-github"></i>
             </a>
-            <a href="mailto:althaf994957@gmail.com" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
+            <a href="mailto:althaf994957@gmail.com" aria-label="Email" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
               <i class="fas fa-envelope"></i>
             </a>
           </div>
@@ -257,7 +257,7 @@
         <div class="md:w-1/2 flex justify-center">
           <div class="relative">
             <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-            <img src="https://althaf99495.github.io/profile.png" alt="Profile" class="relative rounded-full w-72 h-72 md:w-96 md:h-96 neon-border object-cover">
+            <img src="https://althaf99495.github.io/profile.png" alt="Shaik Althaf" class="relative rounded-full w-72 h-72 md:w-96 md:h-96 neon-border object-cover">
           </div>
         </div>
       </div>
@@ -278,37 +278,37 @@
         <div class="reveal">
           <div class="relative group">
             <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition"></div>
-            <img src="https://althaf99495.github.io/profile.png" alt="About" class="relative rounded-2xl w-full">
+            <img src="https://althaf99495.github.io/profile.png" alt="Shaik Althaf" class="relative rounded-2xl w-full">
           </div>
         </div>
         
         <div class="space-y-6 reveal">
           <p class="text-gray-300 text-lg leading-relaxed">
-            I'm a <span class="text-cyan-400 font-semibold">Computer Science graduate</span> pursuing M.Sc. at 
-            <span class="text-cyan-400 font-semibold">Sri Venkateswara University, Tirupati</span>. 
-            With a strong foundation in Python and web development, I specialize in creating efficient, scalable applications.
+            I'm an <span class="text-cyan-400 font-semibold">M.Sc. Computer Science</span> student at
+            <span class="text-cyan-400 font-semibold">Sri Venkateswara University, Tirupati</span> (2024–2026).
+            My fundamentals are C++, data structures and algorithms, SQL, operating systems and Linux.
           </p>
           <p class="text-gray-300 text-lg leading-relaxed">
-            My journey in tech is driven by curiosity and a desire to solve real-world problems. 
-            I thrive in collaborative environments where innovation meets execution.
+            I write Python backends with FastAPI, SQLAlchemy and PostgreSQL, and test them with pytest.
+            I hold the Harvard CS50P certificate and I'm looking for backend developer roles as a fresher.
           </p>
           
           <div class="grid grid-cols-2 gap-4 pt-6">
             <div class="bg-slate-800 p-4 rounded-lg border border-cyan-500/20 hover:border-cyan-500/50 transition">
-              <div class="text-3xl font-bold text-cyan-400 mb-2">5+</div>
-              <div class="text-gray-400">Technologies</div>
+              <div class="text-3xl font-bold text-cyan-400 mb-2">4</div>
+              <div class="text-gray-400">Projects</div>
             </div>
             <div class="bg-slate-800 p-4 rounded-lg border border-cyan-500/20 hover:border-cyan-500/50 transition">
-              <div class="text-3xl font-bold text-cyan-400 mb-2">8.7</div>
-              <div class="text-gray-400">Academic CGPA</div>
+              <div class="text-3xl font-bold text-cyan-400 mb-2">7.3</div>
+              <div class="text-gray-400">M.Sc. CGPA</div>
             </div>
             <div class="bg-slate-800 p-4 rounded-lg border border-cyan-500/20 hover:border-cyan-500/50 transition">
-              <div class="text-3xl font-bold text-cyan-400 mb-2">1+</div>
-              <div class="text-gray-400">Years Experience</div>
+              <div class="text-3xl font-bold text-cyan-400 mb-2">3</div>
+              <div class="text-gray-400">Languages: C++, Python, SQL</div>
             </div>
             <div class="bg-slate-800 p-4 rounded-lg border border-cyan-500/20 hover:border-cyan-500/50 transition">
-              <div class="text-3xl font-bold text-cyan-400 mb-2">MS</div>
-              <div class="text-gray-400">Certified</div>
+              <div class="text-3xl font-bold text-cyan-400 mb-2">4</div>
+              <div class="text-gray-400">Certifications</div>
             </div>
           </div>
         </div>
@@ -326,106 +326,59 @@
         <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto"></div>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Frontend -->
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Languages -->
         <div class="reveal bg-slate-900 p-8 rounded-2xl border border-cyan-500/20 card-3d neon-glow">
           <div class="text-4xl mb-4 text-cyan-400"><i class="fas fa-code"></i></div>
-          <h3 class="text-2xl font-bold mb-6 text-white">Frontend</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between mb-2">
-                <span class="text-gray-300">HTML5 & CSS3</span>
-                <span class="text-cyan-400">90%</span>
-              </div>
-              <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                <div class="progress-bar h-full bg-gradient-to-r from-cyan-500 to-blue-500" style="--progress: 90%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2">
-                <span class="text-gray-300">JavaScript</span>
-                <span class="text-cyan-400">85%</span>
-              </div>
-              <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                <div class="progress-bar h-full bg-gradient-to-r from-cyan-500 to-blue-500" style="--progress: 85%"></div>
-              </div>
-            </div>
+          <h3 class="text-2xl font-bold mb-6 text-white">Languages</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">C++</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Python</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">SQL</span>
+          </div>
+        </div>
+
+        <!-- Core CS -->
+        <div class="reveal bg-slate-900 p-8 rounded-2xl border border-cyan-500/20 card-3d neon-glow">
+          <div class="text-4xl mb-4 text-cyan-400"><i class="fas fa-microchip"></i></div>
+          <h3 class="text-2xl font-bold mb-6 text-white">Core CS</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Data Structures &amp; Algorithms</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">OOP</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Operating Systems</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">DBMS</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Computer Networks</span>
           </div>
         </div>
         
-        <!-- Backend -->
+        <!-- Backend & Database -->
         <div class="reveal bg-slate-900 p-8 rounded-2xl border border-cyan-500/20 card-3d neon-glow">
           <div class="text-4xl mb-4 text-cyan-400"><i class="fas fa-server"></i></div>
-          <h3 class="text-2xl font-bold mb-6 text-white">Backend</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between mb-2">
-                <span class="text-gray-300">Python</span>
-                <span class="text-cyan-400">95%</span>
-              </div>
-              <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                <div class="progress-bar h-full bg-gradient-to-r from-cyan-500 to-blue-500" style="--progress: 95%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2">
-                <span class="text-gray-300">Flask</span>
-                <span class="text-cyan-400">88%</span>
-              </div>
-              <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                <div class="progress-bar h-full bg-gradient-to-r from-cyan-500 to-blue-500" style="--progress: 88%"></div>
-              </div>
-            </div>
+          <h3 class="text-2xl font-bold mb-6 text-white">Backend &amp; Database</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">FastAPI</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">REST APIs</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">SQLAlchemy</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Pydantic</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">PostgreSQL</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">JWT Authentication</span>
           </div>
         </div>
         
-        <!-- Tools & Others -->
+        <!-- Tools & Practices -->
         <div class="reveal bg-slate-900 p-8 rounded-2xl border border-cyan-500/20 card-3d neon-glow">
           <div class="text-4xl mb-4 text-cyan-400"><i class="fas fa-tools"></i></div>
-          <h3 class="text-2xl font-bold mb-6 text-white">Tools & Database</h3>
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between mb-2">
-                <span class="text-gray-300">Git & GitHub</span>
-                <span class="text-cyan-400">92%</span>
-              </div>
-              <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                <div class="progress-bar h-full bg-gradient-to-r from-cyan-500 to-blue-500" style="--progress: 92%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2">
-                <span class="text-gray-300">SQLite3</span>
-                <span class="text-cyan-400">87%</span>
-              </div>
-              <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                <div class="progress-bar h-full bg-gradient-to-r from-cyan-500 to-blue-500" style="--progress: 87%"></div>
-              </div>
-            </div>
+          <h3 class="text-2xl font-bold mb-6 text-white">Tools &amp; Practices</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Git &amp; GitHub</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Linux (Ubuntu)</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">pytest</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Postman</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Debugging</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Unit Testing</span>
+            <span class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-full text-cyan-400 text-sm">Error Handling</span>
           </div>
         </div>
-      </div>
-      
-      <!-- Additional Skills -->
-      <div class="mt-12 flex flex-wrap justify-center gap-4 reveal">
-        <span class="px-6 py-3 bg-slate-900 border border-cyan-500/30 rounded-full text-cyan-400 hover:bg-slate-800 transition">
-          <i class="fab fa-python mr-2"></i>Python
-        </span>
-        <span class="px-6 py-3 bg-slate-900 border border-cyan-500/30 rounded-full text-cyan-400 hover:bg-slate-800 transition">
-          <i class="fas fa-flask mr-2"></i>Flask
-        </span>
-        <span class="px-6 py-3 bg-slate-900 border border-cyan-500/30 rounded-full text-cyan-400 hover:bg-slate-800 transition">
-          <i class="fab fa-js mr-2"></i>JavaScript
-        </span>
-        <span class="px-6 py-3 bg-slate-900 border border-cyan-500/30 rounded-full text-cyan-400 hover:bg-slate-800 transition">
-          <i class="fas fa-database mr-2"></i>SQLite3
-        </span>
-        <span class="px-6 py-3 bg-slate-900 border border-cyan-500/30 rounded-full text-cyan-400 hover:bg-slate-800 transition">
-          <i class="fab fa-git-alt mr-2"></i>Git
-        </span>
-        <span class="px-6 py-3 bg-slate-900 border border-cyan-500/30 rounded-full text-cyan-400 hover:bg-slate-800 transition">
-          <i class="fas fa-chart-line mr-2"></i>Pandas
-        </span>
       </div>
     </div>
   </section>
@@ -435,16 +388,98 @@
     <div class="container mx-auto px-6">
       <div class="text-center mb-16 reveal">
         <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          Featured <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projects</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projects</span>
         </h2>
         <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto"></div>
       </div>
       
-      <div class="max-w-5xl mx-auto">
+      <div class="max-w-5xl mx-auto space-y-10">
+
+        <!-- Expense Management API -->
         <div class="reveal bg-slate-950 rounded-2xl border border-cyan-500/30 overflow-hidden neon-glow">
           <div class="p-8 md:p-12">
             <div class="flex items-center gap-4 mb-6">
-              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center text-3xl">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center text-3xl shrink-0">
+                <i class="fas fa-wallet"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-3xl font-bold text-white">Expense Management API</h3>
+                <p class="text-cyan-400">REST API • Backend</p>
+              </div>
+              <span class="hidden sm:inline-block px-4 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold">In progress</span>
+            </div>
+            <ul class="space-y-3 text-gray-300 text-lg leading-relaxed mb-8 list-disc pl-6">
+              <li>REST APIs built with FastAPI, SQLAlchemy and PostgreSQL to manage users, categories and expenses, with JWT authentication and per-user data access.</li>
+              <li>Pydantic request validation, filtering, pagination, monthly summary queries (SQL GROUP BY) and consistent error responses.</li>
+              <li>pytest tests for authentication, authorization and CRUD endpoints, covering success and failure cases.</li>
+            </ul>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 rounded-lg font-semibold">Python</span>
+              <span class="px-4 py-2 bg-blue-500/20 border border-blue-500/50 text-blue-400 rounded-lg font-semibold">FastAPI</span>
+              <span class="px-4 py-2 bg-purple-500/20 border border-purple-500/50 text-purple-400 rounded-lg font-semibold">PostgreSQL</span>
+              <span class="px-4 py-2 bg-green-500/20 border border-green-500/50 text-green-400 rounded-lg font-semibold">SQLAlchemy</span>
+              <span class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 rounded-lg font-semibold">pytest</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Log Analyzer CLI -->
+        <div class="reveal bg-slate-950 rounded-2xl border border-cyan-500/30 overflow-hidden neon-glow">
+          <div class="p-8 md:p-12">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center text-3xl shrink-0">
+                <i class="fas fa-terminal"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-3xl font-bold text-white">Log Analyzer CLI</h3>
+                <p class="text-cyan-400">Command-line Tool • Log Analysis</p>
+              </div>
+              <span class="hidden sm:inline-block px-4 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold">In progress</span>
+            </div>
+            <ul class="space-y-3 text-gray-300 text-lg leading-relaxed mb-8 list-disc pl-6">
+              <li>Parses web-server access logs line by line and counts HTTP status codes, top endpoints and top client IPs.</li>
+              <li>Detects frequent failures and error spikes by time window, and exports summary reports as text, JSON and CSV.</li>
+              <li>Streams input to handle large files and malformed lines. Parsing and aggregation logic is tested with pytest.</li>
+            </ul>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 rounded-lg font-semibold">Python</span>
+              <span class="px-4 py-2 bg-blue-500/20 border border-blue-500/50 text-blue-400 rounded-lg font-semibold">argparse</span>
+              <span class="px-4 py-2 bg-purple-500/20 border border-purple-500/50 text-purple-400 rounded-lg font-semibold">regex</span>
+              <span class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 rounded-lg font-semibold">pytest</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Developer Environment Manager -->
+        <div class="reveal bg-slate-950 rounded-2xl border border-cyan-500/30 overflow-hidden neon-glow">
+          <div class="p-8 md:p-12">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center text-3xl shrink-0">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-3xl font-bold text-white">Developer Environment Manager</h3>
+                <p class="text-cyan-400">Command-line Tool • Developer Tooling</p>
+              </div>
+              <span class="hidden sm:inline-block px-4 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">Completed</span>
+            </div>
+            <ul class="space-y-3 text-gray-300 text-lg leading-relaxed mb-8 list-disc pl-6">
+              <li>Python command-line tool to register, list, inspect and remove local development projects, using pathlib and persistent project state.</li>
+              <li>pytest coverage for core project-management behaviour, including validation and error paths.</li>
+            </ul>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 rounded-lg font-semibold">Python</span>
+              <span class="px-4 py-2 bg-blue-500/20 border border-blue-500/50 text-blue-400 rounded-lg font-semibold">pathlib</span>
+              <span class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 rounded-lg font-semibold">pytest</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transfer Certificate Generation System -->
+        <div class="reveal bg-slate-950 rounded-2xl border border-cyan-500/30 overflow-hidden neon-glow">
+          <div class="p-8 md:p-12">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center text-3xl shrink-0">
                 <i class="fas fa-certificate"></i>
               </div>
               <div>
@@ -497,6 +532,12 @@
             </div>
           </div>
         </div>
+
+        <div class="text-center reveal">
+          <a href="https://github.com/althaf99495" target="_blank" rel="noopener" class="inline-block px-8 py-4 border-2 border-cyan-500 text-cyan-400 font-bold rounded-lg hover:bg-cyan-500 hover:text-white transition">
+            <i class="fab fa-github mr-2"></i>Source code on GitHub
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -506,7 +547,7 @@
     <div class="container mx-auto px-6">
       <div class="text-center mb-16 reveal">
         <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          Education & <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Achievements</span>
+          Education &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Certifications</span>
         </h2>
         <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto"></div>
       </div>
@@ -517,13 +558,12 @@
             <i class="fas fa-graduation-cap"></i>
           </div>
           <div class="flex-1">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-2xl font-bold text-white">M.Sc in Computer Science</h3>
-              <span class="px-4 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold">Current</span>
+            <div class="flex justify-between items-start mb-2 gap-4">
+              <h3 class="text-2xl font-bold text-white">M.Sc. Computer Science</h3>
+              <span class="px-4 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold whitespace-nowrap">CGPA 7.3</span>
             </div>
-            <p class="text-gray-400 font-semibold mb-2">Sri Venkateswara University College of CM & CS, Tirupati</p>
-            <p class="text-gray-500 mb-3">2024 – 2026</p>
-            <p class="text-gray-300">Advancing expertise in software development, algorithms, and modern web technologies.</p>
+            <p class="text-gray-400 font-semibold mb-2">Sri Venkateswara University, Tirupati</p>
+            <p class="text-gray-500">2024 – 2026</p>
           </div>
         </div>
         
@@ -532,13 +572,12 @@
             <i class="fas fa-university"></i>
           </div>
           <div class="flex-1">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-2xl font-bold text-white">B.Sc in Computer Science</h3>
-              <span class="px-4 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold">CGPA 7.3</span>
+            <div class="flex justify-between items-start mb-2 gap-4">
+              <h3 class="text-2xl font-bold text-white">B.Sc. Computer Science</h3>
+              <span class="px-4 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold whitespace-nowrap">CGPA 7.3</span>
             </div>
             <p class="text-gray-400 font-semibold mb-2">Government Degree College for Men, Kurnool</p>
-            <p class="text-gray-500 mb-3">2021 – 2024</p>
-            <p class="text-gray-300">Built strong foundation in programming, data structures, and software engineering principles.</p>
+            <p class="text-gray-500">2021 – 2024</p>
           </div>
         </div>
         
@@ -547,13 +586,12 @@
             <i class="fas fa-school"></i>
           </div>
           <div class="flex-1">
-            <div class="flex justify-between items-start mb-2">
+            <div class="flex justify-between items-start mb-2 gap-4">
               <h3 class="text-2xl font-bold text-white">Secondary Education</h3>
-              <span class="px-4 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm font-semibold">CGPA 8.7</span>
+              <span class="px-4 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm font-semibold whitespace-nowrap">CGPA 8.7</span>
             </div>
             <p class="text-gray-400 font-semibold mb-2">Krishnaveni EMHS, Kurnool</p>
-            <p class="text-gray-500 mb-3">Completed with Distinction</p>
-            <p class="text-gray-300">Excellent academic performance with focus on science and mathematics.</p>
+            <p class="text-gray-500">Completed with Distinction</p>
           </div>
         </div>
       </div>
@@ -562,20 +600,38 @@
       <div class="mt-16 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <div class="reveal bg-slate-900 p-8 rounded-2xl border border-cyan-500/30 text-center neon-glow">
           <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
-            <i class="fas fa-certificate"></i>
+            <i class="fas fa-award"></i>
           </div>
-          <h4 class="text-2xl font-bold text-white mb-2">Microsoft Certified</h4>
-          <p class="text-cyan-400 font-semibold mb-3">Python Programming</p>
-          <p class="text-gray-400">Industry-recognized certification demonstrating Python expertise</p>
+          <h4 class="text-xl font-bold text-white mb-2">CS50: Introduction to Programming with Python</h4>
+          <p class="text-cyan-400 font-semibold mb-1">Harvard University (edX)</p>
+          <p class="text-gray-400">2026</p>
         </div>
-        
+
         <div class="reveal bg-slate-900 p-8 rounded-2xl border border-cyan-500/30 text-center neon-glow">
-          <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
-            <i class="fas fa-trophy"></i>
+          <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+            <i class="fas fa-code"></i>
           </div>
-          <h4 class="text-2xl font-bold text-white mb-2">Academic Excellence</h4>
-          <p class="text-cyan-400 font-semibold mb-3">Consistent Performance</p>
-          <p class="text-gray-400">Maintained high academic standards throughout education</p>
+          <h4 class="text-xl font-bold text-white mb-2">Python (Basic) Certificate</h4>
+          <p class="text-cyan-400 font-semibold mb-1">HackerRank</p>
+          <p class="text-gray-400">Jul 2026</p>
+        </div>
+
+        <div class="reveal bg-slate-900 p-8 rounded-2xl border border-cyan-500/30 text-center neon-glow">
+          <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2">Artificial Intelligence Fundamentals</h4>
+          <p class="text-cyan-400 font-semibold mb-1">IBM SkillsBuild</p>
+          <p class="text-gray-400">Mar 2026</p>
+        </div>
+
+        <div class="reveal bg-slate-900 p-8 rounded-2xl border border-cyan-500/30 text-center neon-glow">
+          <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2">Technology Job Simulation (Coding &amp; Development)</h4>
+          <p class="text-cyan-400 font-semibold mb-1">Deloitte via Forage (virtual simulation)</p>
+          <p class="text-gray-400">Sep 2026</p>
         </div>
       </div>
     </div>
@@ -587,16 +643,16 @@
     <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-12 reveal">
         <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          Let's <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Connect</span>
+          Get in <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Touch</span>
         </h2>
         <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-6"></div>
         <p class="text-gray-300 text-xl max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? I'm always open to discussing new opportunities and ideas!
+          I'm looking for backend developer roles. Email is the quickest way to reach me.
         </p>
       </div>
       
-      <div class="max-w-4xl mx-auto">
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div class="reveal bg-slate-950 p-8 rounded-2xl border border-cyan-500/30 text-center neon-glow">
             <div class="text-4xl text-cyan-400 mb-4">
               <i class="fas fa-envelope"></i>
@@ -612,8 +668,8 @@
               <i class="fab fa-linkedin"></i>
             </div>
             <h4 class="text-white font-bold text-lg mb-2">LinkedIn</h4>
-            <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" class="text-gray-400 hover:text-cyan-400 transition">
-              Connect with me
+            <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" rel="noopener" class="text-gray-400 hover:text-cyan-400 transition">
+              shaik-althaf
             </a>
           </div>
           
@@ -622,15 +678,25 @@
               <i class="fab fa-github"></i>
             </div>
             <h4 class="text-white font-bold text-lg mb-2">GitHub</h4>
-            <a href="https://github.com/althaf99495" target="_blank" class="text-gray-400 hover:text-cyan-400 transition">
-              View my code
+            <a href="https://github.com/althaf99495" target="_blank" rel="noopener" class="text-gray-400 hover:text-cyan-400 transition">
+              althaf99495
+            </a>
+          </div>
+
+          <div class="reveal bg-slate-950 p-8 rounded-2xl border border-cyan-500/30 text-center neon-glow">
+            <div class="text-4xl text-cyan-400 mb-4">
+              <i class="fas fa-code"></i>
+            </div>
+            <h4 class="text-white font-bold text-lg mb-2">LeetCode</h4>
+            <a href="https://leetcode.com/u/althaf994" target="_blank" rel="noopener" class="text-gray-400 hover:text-cyan-400 transition">
+              althaf994
             </a>
           </div>
         </div>
         
         <div class="text-center reveal">
           <a href="mailto:althaf994957@gmail.com" class="inline-block px-12 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold text-lg rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition transform hover:scale-105">
-            <i class="fas fa-paper-plane mr-3"></i>Send Message
+            <i class="fas fa-paper-plane mr-3"></i>Email Me
           </a>
         </div>
       </div>
@@ -645,27 +711,27 @@
           <a href="#home" class="text-2xl font-bold text-cyan-400 glitch" data-text="<SA/>">
             &lt;SA/&gt;
           </a>
-          <p class="text-gray-400 mt-2">Software Developer • Python Enthusiast</p>
+          <p class="text-gray-400 mt-2">Backend Developer • Python</p>
         </div>
         
         <div class="flex flex-col items-center md:items-end">
           <div class="flex gap-6 text-2xl mb-4">
-            <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
+            <a href="https://linkedin.com/in/shaik-althaf-11b814267" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com/althaf99495" target="_blank" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
+            <a href="https://github.com/althaf99495" target="_blank" rel="noopener" aria-label="GitHub" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
               <i class="fab fa-github"></i>
             </a>
-            <a href="mailto:althaf994957@gmail.com" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
+            <a href="mailto:althaf994957@gmail.com" aria-label="Email" class="text-gray-400 hover:text-cyan-400 transform hover:scale-110 transition">
               <i class="fas fa-envelope"></i>
             </a>
           </div>
-          <p class="text-gray-500 text-sm">© 2025 Shaik Althaf. All rights reserved.</p>
+          <p class="text-gray-500 text-sm">© 2026 Shaik Althaf. All rights reserved.</p>
         </div>
       </div>
       
       <div class="mt-8 text-center text-gray-600 text-sm">
-        <p>Built with <span class="text-cyan-400">❤</span> using HTML, CSS & JavaScript</p>
+        <p>Built with HTML, Tailwind CSS and JavaScript</p>
       </div>
     </div>
   </footer>
@@ -705,20 +771,6 @@
     };
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
-
-    // Progress bars animation
-    const progressBars = document.querySelectorAll('.progress-bar');
-    const animateProgress = () => {
-      progressBars.forEach(bar => {
-        const barTop = bar.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (barTop < windowHeight - 100 && !bar.classList.contains('animate')) {
-          bar.classList.add('animate');
-        }
-      });
-    };
-    window.addEventListener('scroll', animateProgress);
-    animateProgress();
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
